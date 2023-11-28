@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:phish_defender/core/colors.dart';
+import 'package:phish_defender/core/constants.dart';
+import 'package:phish_defender/core/textstyle.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -13,6 +15,7 @@ class HomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextFormField(),
+              khight,
               MaterialButton(
                 onPressed: () {},
                 color: kwhite,
@@ -24,7 +27,9 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                child: const Text("Submit"),
+                minWidth:150,
+                height: 40,
+                child: const Text("Submit",style: hometextstyle,),
               ),
             ],
           ),
