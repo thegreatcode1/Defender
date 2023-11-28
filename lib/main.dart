@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:phish_defender/core/colors.dart';
+import 'package:phish_defender/core/routermap.dart';
 import 'package:phish_defender/presentation/Home/home.dart';
 import 'package:phish_defender/presentation/Result_screen/result.dart';
 
@@ -19,9 +20,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: kblack,
       ),
       home: const HomeScreen(),
-      routes: {
-        ResultScreen.routename: (ctx) => const ResultScreen(),
-      },
+      routes: routers,
     );
   }
 }
