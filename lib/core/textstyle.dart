@@ -17,3 +17,9 @@ const TextStyle hometextstyletextfieldurl = TextStyle(
   color: kwhite,
   fontSize: 16,
 );
+
+const TextStyle dummystyle = TextStyle(
+  color: kwhite,
+  fontSize: 30,
+  fontWeight: FontWeight.bold,
+);

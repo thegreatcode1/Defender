@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:phish_defender/core/colors.dart';
 import 'package:phish_defender/core/constants.dart';
 import 'package:phish_defender/core/textstyle.dart';
+import 'package:phish_defender/presentation/Result_screen/result.dart';
 
 
 class HomeButtonandTextfield extends StatelessWidget {
@@ -32,7 +33,9 @@ class HomeButtonandTextfield extends StatelessWidget {
           ),
           khight,
           MaterialButton(
-            onPressed: () {},
+            onPressed: () {
+               Navigator.of(context).pushNamed(ResultScreen.routename);
+            },
             color: kwhite,
             textColor: kblack,
             shape: const RoundedRectangleBorder(
