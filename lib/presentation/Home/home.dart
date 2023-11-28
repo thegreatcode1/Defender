@@ -11,27 +11,46 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextFormField(),
-              khight,
-              MaterialButton(
-                onPressed: () {},
-                color: kwhite,
-                textColor: kblack,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(
-                      20.0,
+          child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextFormField(
+                  style: hometextstyletextfieldurl,
+                  decoration: InputDecoration(
+                    fillColor: ktransparent.withOpacity(0.2),
+                    hintText: "paste url",
+                    hintStyle: hometextstyletextfield,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: const BorderSide(
+                        color: kgrey,
+                      ),
                     ),
                   ),
                 ),
-                minWidth:150,
-                height: 40,
-                child: const Text("Submit",style: hometextstyle,),
-              ),
-            ],
+                khight,
+                MaterialButton(
+                  onPressed: () {},
+                  color: kwhite,
+                  textColor: kblack,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(
+                        20.0,
+                      ),
+                    ),
+                  ),
+                  minWidth: 150,
+                  height: 40,
+                  child: const Text(
+                    "Submit",
+                    style: hometextstylebutton,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
