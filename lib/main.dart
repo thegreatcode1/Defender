@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:phish_defender/core/colors.dart';
 import 'package:phish_defender/presentation/Home/home.dart';
 
 void main() {
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        scaffoldBackgroundColor: kblack,
       ),
       home: const HomeScreen(),
     );
