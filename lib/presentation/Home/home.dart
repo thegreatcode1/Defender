@@ -15,6 +15,7 @@ class HomeScreen extends StatelessWidget {
         body: SafeArea(
           child: Column(
             children: [
+              //top tabs
               TabBar(
                 isScrollable: true,
                 dividerColor: ktransparent,
@@ -39,6 +40,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
+              //pages on tabbar view
               const Expanded(
                 child: TabBarView(
                   children: [
