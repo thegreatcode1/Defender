@@ -28,3 +28,9 @@ const TextStyle tabbartext = TextStyle(
   fontSize: 16,
   fontWeight: FontWeight.bold,
 );
+
+const TextStyle splashscreentext = TextStyle(
+  color: kwhite,
+  fontSize: 40,
+  fontWeight: FontWeight.w700,
+);

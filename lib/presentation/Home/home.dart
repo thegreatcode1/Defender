@@ -5,6 +5,7 @@ import 'package:phish_defender/presentation/Home/Widgets/homescreenwidget.dart';
 import 'package:phish_defender/presentation/Home/Widgets/userawareness.dart';
 
 class HomeScreen extends StatelessWidget {
+  static const routename = "home-screen";
   const HomeScreen({super.key});
 
   @override

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:phish_defender/core/colors.dart';
 import 'package:phish_defender/core/routermap.dart';
 import 'package:phish_defender/presentation/Home/home.dart';
+import 'package:phish_defender/presentation/Splash_screen/splashscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         scaffoldBackgroundColor: kblack,
       ),
-      home: const HomeScreen(),
+      home: const SplashScreen(),
       routes: routers,
     );
   }
