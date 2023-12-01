@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:phish_defender/core/colors.dart';
 import 'package:phish_defender/core/textstyle.dart';
 import 'package:phish_defender/presentation/Home/Widgets/homescreenwidget.dart';
+import 'package:phish_defender/presentation/Home/Widgets/userawareness.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -13,10 +14,9 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         body: SafeArea(
           child: Column(
-            
             children: [
               TabBar(
-                //isScrollable: true,
+                isScrollable: true,
                 dividerColor: ktransparent,
                 padding: const EdgeInsets.all(50),
                 indicatorSize: TabBarIndicatorSize.tab,
@@ -29,14 +29,23 @@ class HomeScreen extends StatelessWidget {
                 labelColor: kblack,
                 unselectedLabelColor: kgrey,
                 labelStyle: tabbartext,
+                tabAlignment: TabAlignment.center,
                 tabs: const [
                   Tab(
-                    text: "👨‍✈️ user awarnes",
+                    text: "👨‍✈️ User Awareness",
                   ),
                   Tab(
                     text: "🪝 check",
                   ),
                 ],
+              ),
+              const Expanded(
+                child: TabBarView(
+                  children: [
+                    UserAwareness(),
+                    HomeButtonandTextfield(),
+                  ],
+                ),
               ),
             ],
           ),
