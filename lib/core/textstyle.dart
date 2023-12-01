@@ -23,3 +23,8 @@ const TextStyle dummystyle = TextStyle(
   fontSize: 30,
   fontWeight: FontWeight.bold,
 );
+
+const TextStyle tabbartext = TextStyle(
+  fontSize: 16,
+  fontWeight: FontWeight.bold,
+);

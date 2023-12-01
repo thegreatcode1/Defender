@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:phish_defender/core/colors.dart';
 import 'package:phish_defender/core/routermap.dart';
 import 'package:phish_defender/presentation/Home/home.dart';
-import 'package:phish_defender/presentation/Result_screen/result.dart';
 
 void main() {
   runApp(const MyApp());
