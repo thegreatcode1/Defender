@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:phish_defender/api_end_points/data.dart';
 import 'package:phish_defender/core/colors.dart';
 import 'package:phish_defender/core/constants.dart';
 import 'package:phish_defender/core/textstyle.dart';
 import 'package:phish_defender/presentation/Result_screen/result.dart';
 
+final textcontroller =TextEditingController();
 class HomeButtonandTextfield extends StatelessWidget {
   const HomeButtonandTextfield({
     super.key,
@@ -17,6 +19,7 @@ class HomeButtonandTextfield extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextFormField(
+            controller: textcontroller,
             style: hometextstyletextfieldurl,
             decoration: InputDecoration(
               fillColor: ktransparent.withOpacity(0.2),
@@ -33,6 +36,7 @@ class HomeButtonandTextfield extends StatelessWidget {
           khight,
           MaterialButton(
             onPressed: () {
+              Datadb.instance.getletterascii();
               Navigator.of(context).pushNamed(ResultScreen.routename);
             },
             color: kwhite,

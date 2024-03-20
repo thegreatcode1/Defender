@@ -3,14 +3,15 @@ import 'package:json_annotation/json_annotation.dart';
 part 'letter_parse_model.g.dart';
 
 @JsonSerializable()
-class LetterParseModel {
+class LetterParseModelGet {
+  @JsonKey(name: 'output')
   String? output;
 
-  LetterParseModel({this.output});
+  LetterParseModelGet({this.output});
 
-  factory LetterParseModel.fromJson(Map<String, dynamic> json) {
-    return _$LetterParseModelFromJson(json);
+  factory LetterParseModelGet.fromJson(Map<String, dynamic> json) {
+    return _$LetterParseModelGetFromJson(json);
   }
 
-  Map<String, dynamic> toJson() => _$LetterParseModelToJson(this);
+  Map<String, dynamic> toJson() => _$LetterParseModelGetToJson(this);
 }
