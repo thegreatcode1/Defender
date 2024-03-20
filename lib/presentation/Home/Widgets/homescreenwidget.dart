@@ -4,7 +4,6 @@ import 'package:phish_defender/core/constants.dart';
 import 'package:phish_defender/core/textstyle.dart';
 import 'package:phish_defender/presentation/Result_screen/result.dart';
 
-
 class HomeButtonandTextfield extends StatelessWidget {
   const HomeButtonandTextfield({
     super.key,
@@ -34,7 +33,7 @@ class HomeButtonandTextfield extends StatelessWidget {
           khight,
           MaterialButton(
             onPressed: () {
-               Navigator.of(context).pushNamed(ResultScreen.routename);
+              Navigator.of(context).pushNamed(ResultScreen.routename);
             },
             color: kwhite,
             textColor: kblack,

@@ -9,7 +9,7 @@ class UserAwareness extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child:  Text(
+      child: Text(
         "👨‍✈️ User Awareness",
         style: dummystyle,
       ),
