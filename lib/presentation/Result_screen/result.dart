@@ -18,8 +18,12 @@ class ResultScreen extends StatelessWidget {
               ValueListenableBuilder(
                 valueListenable: Datadb.instance.letternotifier,
                 builder: (context, value, _) {
+                  if(value.isEmpty){
+                    const Text('list is empty');
+                  }
                   return  Text(
-                  '$value[0]',
+                    "hello",
+                  //Datadb.instance.letternotifier.value[0].toString(),
                   style: dummystyle,
                 );
                 },

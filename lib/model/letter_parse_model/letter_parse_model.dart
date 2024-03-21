@@ -8,6 +8,7 @@ class LetterParseModelGet {
   String? output;
 
   LetterParseModelGet({this.output});
+  LetterParseModelGet.create({required this.output});
 
   factory LetterParseModelGet.fromJson(Map<String, dynamic> json) {
     return _$LetterParseModelGetFromJson(json);
