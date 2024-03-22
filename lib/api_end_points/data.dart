@@ -8,7 +8,7 @@ import 'package:phish_defender/model/letter_parse_model/letter_parse_model.dart'
 //import 'package:phish_defender/presentation/Home/Widgets/homescreenwidget.dart';
 
 abstract class ApiCalls {
-  Future<List<LetterParseModelGet>> getletterascii();
+  Future<List<String>> getletterascii();
 }
 
 class Datadb extends ApiCalls {
@@ -23,52 +23,30 @@ class Datadb extends ApiCalls {
   }
 // singleton end
 
-  ValueNotifier<List<LetterParseModelGet>> letternotifier = ValueNotifier([]);
+  ValueNotifier<List<String>> letternotifier = ValueNotifier([]);
 
   @override
-  Future<List<LetterParseModelGet>> getletterascii() async {
+  Future<List<String>> getletterascii() async {
     try {
       final completepath = url.baseurl;
-      Response response = await dio.get<LetterParseModelGet>(completepath);
-      //log(response.toString());
-
-      //print(response);
+      final response = await dio.get<String>(completepath);
+      log(response.data.toString());
       if (response.data != null && response.data is String) {
-        log(response.toString());
-
-        final getresult = LetterParseModelGet.fromJson(
-            jsonDecode(response.data) as Map<String, dynamic>);
-        //     print(getresult);
-        log(getresult.toString());
-        log("hello");
-
-        letternotifier.value.clear();
-        letternotifier.value.add(getresult);
-        letternotifier.notifyListeners();
-
-        // else{
-        //   log("no text");
-        // }
-      } else if (response.data is Map<String, dynamic>) {
-        log(response.data.toString());
-        log("hello");
-        final getresult = jsonDecode(response.data);
-        log(getresult.toString());
-
-        var getresult1 =
-            LetterParseModelGet.fromJson(getresult as Map<String, dynamic>);
-
-        log("hello");
-        letternotifier.value.clear();
-        letternotifier.value.add(getresult1);
-        letternotifier.notifyListeners();
-        
+        final getrespo =
+            LetterParseModelGet.fromJson(jsonDecode(response.data.toString()));
+        log(getrespo.output.toString());
+        // Check if getrespo.output is not null before calling toList()
+        if (getrespo.output != null) {
+          letternotifier.value.clear();
+          letternotifier.value.addAll(getrespo.output!);
+          letternotifier.notifyListeners();
+        }
+        return getrespo.output ?? [];
       }
     } catch (e) {
       print(e);
     }
-    letternotifier.value.clear();
 
-    
+    return [];
   }
 }

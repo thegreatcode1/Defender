@@ -18,16 +18,19 @@ class ResultScreen extends StatelessWidget {
               ValueListenableBuilder(
                 valueListenable: Datadb.instance.letternotifier,
                 builder: (context, value, _) {
-                  if(value.isEmpty){
-                    const Text('list is empty');
+                  if (Datadb.instance.letternotifier.value.isNotEmpty) {
+                    return Text(
+                      //"hello",
+                      Datadb.instance.letternotifier.value[0],
+                      style: dummystyle,
+                    );
+                  }else{
+                    return const Text(
+                      'No data available',
+                      style: TextStyle(color: Colors.red),
+                    );
                   }
-                  return  Text(
-                    "hello",
-                  //Datadb.instance.letternotifier.value[0].toString(),
-                  style: dummystyle,
-                );
                 },
-                
               ),
               ElevatedButton(
                   onPressed: () {

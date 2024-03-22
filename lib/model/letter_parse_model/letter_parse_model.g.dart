@@ -8,7 +8,8 @@ part of 'letter_parse_model.dart';
 
 LetterParseModelGet _$LetterParseModelGetFromJson(Map<String, dynamic> json) =>
     LetterParseModelGet(
-      output: json['output'] as String?,
+      output:
+          (json['output'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$LetterParseModelGetToJson(
