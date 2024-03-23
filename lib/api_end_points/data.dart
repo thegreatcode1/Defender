@@ -8,7 +8,7 @@ import 'package:phish_defender/model/letter_parse_model/letter_parse_model.dart'
 //import 'package:phish_defender/presentation/Home/Widgets/homescreenwidget.dart';
 
 abstract class ApiCalls {
-  Future<List<String>> getletterascii();
+  Future<List<String>> getletterascii(String input);
 }
 
 class Datadb extends ApiCalls {
@@ -26,9 +26,9 @@ class Datadb extends ApiCalls {
   ValueNotifier<List<String>> letternotifier = ValueNotifier([]);
 
   @override
-  Future<List<String>> getletterascii() async {
+  Future<List<String>> getletterascii(String input) async {
     try {
-      final completepath = url.baseurl;
+      final completepath = url.baseurl+'${input}';
       final response = await dio.get<String>(completepath);
       log(response.data.toString());
       if (response.data != null && response.data is String) {

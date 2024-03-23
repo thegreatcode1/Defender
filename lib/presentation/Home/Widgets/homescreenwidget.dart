@@ -36,7 +36,9 @@ class HomeButtonandTextfield extends StatelessWidget {
           khight,
           MaterialButton(
             onPressed: () {
-              Datadb.instance.getletterascii();
+              String input = textcontroller.text;
+              Datadb.instance.getletterascii(input);
+              textcontroller.clear();
               Navigator.of(context).pushNamed(ResultScreen.routename);
             },
             color: kwhite,
