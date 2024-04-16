@@ -4,3 +4,10 @@ const kblack = Colors.black;
 const kwhite = Colors.white;
 const ktransparent = Colors.transparent;
 const kgrey = Colors.grey;
+
+const colorizeColors = [
+  Colors.purple,
+  Colors.blue,
+  Colors.yellow,
+  Colors.red,
+];

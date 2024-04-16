@@ -34,3 +34,9 @@ const TextStyle splashscreentext = TextStyle(
   fontSize: 40,
   fontWeight: FontWeight.w700,
 );
+
+const colorizeTextStyle = TextStyle(
+  fontSize: 50.0,
+  fontWeight: FontWeight.bold
+  
+);

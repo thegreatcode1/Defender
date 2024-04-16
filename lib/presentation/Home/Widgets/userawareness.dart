@@ -8,10 +8,19 @@ class UserAwareness extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        "👨‍✈️ User Awareness",
-        style: dummystyle,
+    return Center(
+      child: ShaderMask(
+        shaderCallback: (Rect bounds) {
+          return const LinearGradient(
+            colors: [Colors.purple, Colors.blue],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+          ).createShader(bounds);
+        },
+        child: const Text(
+          'Gradient Text',
+          style: dummystyle,
+        ),
       ),
     );
   }
