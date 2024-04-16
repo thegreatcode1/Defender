@@ -40,3 +40,9 @@ const colorizeTextStyle = TextStyle(
   fontSize: 50.0,
   fontWeight: FontWeight.bold
 );
+
+ const textStyleawerness = TextStyle(
+  color: Colors.white,
+  fontSize: 20,
+  fontWeight: FontWeight.bold,
+);
