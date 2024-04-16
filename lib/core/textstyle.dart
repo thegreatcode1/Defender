@@ -36,7 +36,7 @@ const TextStyle splashscreentext = TextStyle(
 );
 
 const colorizeTextStyle = TextStyle(
+  color: Colors.white,
   fontSize: 50.0,
   fontWeight: FontWeight.bold
-  
 );

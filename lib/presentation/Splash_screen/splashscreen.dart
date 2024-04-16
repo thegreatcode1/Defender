@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:phish_defender/core/colors.dart';
 import 'package:phish_defender/core/textstyle.dart';
 import 'package:phish_defender/presentation/Home/home.dart';
@@ -17,14 +18,14 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
         body: Center(
       child: AnimatedTextKit(
-          //pause: Duration(
-           // milliseconds: 1000,
-         // ),
+          
           animatedTexts: [
             ColorizeAnimatedText(
               'DEFENDER',
-              textStyle: colorizeTextStyle,
+              textStyle:colorizeTextStyle,
               colors: colorizeColors,
+              speed: Duration(milliseconds: 400),
+              
             ),
           ]),
     ));

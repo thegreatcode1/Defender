@@ -12,45 +12,59 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
-      child: Scaffold(
-        body: SafeArea(
-          child: Column(
-            children: [
-              //top tabs
-              TabBar(
-                isScrollable: true,
-                dividerColor: ktransparent,
-                padding: const EdgeInsets.all(50),
-                indicatorSize: TabBarIndicatorSize.tab,
-                indicator: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    25.0,
+       child: Container(
+         height: double.infinity,
+         width: double.infinity,
+         decoration:  const BoxDecoration(
+           gradient: LinearGradient(
+             colors: [Color(0xff1b485d), Color(0xff022f46)],
+             begin: Alignment.topLeft,
+             end: Alignment.bottomRight,
+             stops: [0.2, 0.6],
+             tileMode: TileMode.repeated,
+           ),
+         ),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: SafeArea(
+            child: Column(
+              children: [
+                //top tabs
+                TabBar(
+                  isScrollable: true,
+                  dividerColor: ktransparent,
+                  padding: const EdgeInsets.all(50),
+                  indicatorSize: TabBarIndicatorSize.tab,
+                  indicator: BoxDecoration(
+                    borderRadius: BorderRadius.circular(
+                      25.0,
+                    ),
+                    color: kwhite,
                   ),
-                  color: kwhite,
-                ),
-                labelColor: kblack,
-                unselectedLabelColor: kgrey,
-                labelStyle: tabbartext,
-                tabAlignment: TabAlignment.center,
-                tabs: const [
-                  Tab(
-                    text: "👨‍✈️ User Awareness",
-                  ),
-                  Tab(
-                    text: "🪝 check",
-                  ),
-                ],
-              ),
-              //pages on tabbar view
-              const Expanded(
-                child: TabBarView(
-                  children: [
-                    UserAwareness(),
-                    HomeButtonandTextfield(),
+                  labelColor: kblack,
+                  unselectedLabelColor: kgrey,
+                  labelStyle: tabbartext,
+                  tabAlignment: TabAlignment.center,
+                  tabs: const [
+                    Tab(
+                      text: "👨‍✈️ User Awareness",
+                    ),
+                    Tab(
+                      text: "🪝 check",
+                    ),
                   ],
                 ),
-              ),
-            ],
+                //pages on tabbar view
+                const Expanded(
+                  child: TabBarView(
+                    children: [
+                      UserAwareness(),
+                      HomeButtonandTextfield(),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
