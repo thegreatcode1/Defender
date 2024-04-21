@@ -1,48 +1,85 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
+//import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:phish_defender/core/textstyle.dart';
+import 'package:flutter/widgets.dart';
+import 'package:google_generative_ai/google_generative_ai.dart';
 //import 'package:phish_defender/core/textstyle.dart';
+import 'package:phish_defender/presentation/Home/Widgets/massagewidget.dart';
 
-class UserAwareness extends StatelessWidget {
+//import 'package:phish_defender/core/textstyle.dart';
+ChatSession? chatSessionnew;
+final TextEditingController textcontroller = TextEditingController();
+final FocusNode textfieldfocus = FocusNode();
+bool loading = false;
+class UserAwareness extends  StatelessWidget {
+  static String apiKey = apiKey;
   const UserAwareness({
     super.key,
   });
 
+  Future<void> getgemini() async {
+    final GenerativeModel model = GenerativeModel(
+      model: 'gemini-pro',
+      apiKey: apiKey,
+    );
+    final ChatSession chatSession = model.startChat();
+    chatSessionnew = chatSession;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(22.0),
-      child: Center(
-        child: AnimatedTextKit(
-          isRepeatingAnimation: false,
-          animatedTexts: [
-            ScaleAnimatedText(
-              "Welcome",
-              textAlign: TextAlign.center,
-              textStyle: textStyleawerness,
-            ),
-            ScaleAnimatedText(
-              "To",
-              textAlign: TextAlign.center,
-              textStyle: textStyleawerness,
-            ),
-            ScaleAnimatedText(
-              "DEFENDER",
-              textAlign: TextAlign.center,
-              textStyle: textStyleawerness,
-              scalingFactor: 10
-            ),
-            TypewriterAnimatedText(
-              'What is phishing?\n\nPhishing is a deceitful tactic used by cybercriminals to trick individuals into revealing sensitive information such as login credentials, financial details, or personal data. These attacks often come in the form of deceptive emails, text messages, or phone calls that appear to be from legitimate sources.',
-              cursor: "*",
-              textAlign: TextAlign.justify,
-              textStyle: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600),
-            ),
-          ],
+    getgemini();
+    return Column(
+      children: [
+        Expanded(
+          child: ListView.builder(
+            itemBuilder: (context, index) {
+              final Content? content = chatSessionnew?.history.toList()[index];
+              if (content != null) {
+                final text = content.parts
+                    .whereType<TextPart>()
+                    .map((e) => e.text)
+                    .join('');
+                return MassageWidget(
+                  text: text,
+                  isformtext: content.role == "user" ? "true" : "false",
+                );
+              } else {
+                const Text("loading");
+              }
+            },
+          ),
         ),
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            vertical: 25,
+            horizontal: 15,
+          ),
+          child: Row(
+            children: [
+              Expanded(
+                child: TextFormField(
+                  autofocus: true,
+                  focusNode: textfieldfocus,
+                  controller: textcontroller,
+                  decoration: textfielddecoration(),
+                  
+                ),
+              ),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+
+  InputDecoration textfielddecoration() {
+    return InputDecoration(
+      contentPadding: const EdgeInsets.all(15),
+      hintText: "Enter a prompt",
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(14),
+        borderSide: const BorderSide(color: Colors.blue),
       ),
     );
   }
