@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:lottie/lottie.dart';
 import 'package:phish_defender/api_end_points/data.dart';
 import 'package:phish_defender/core/colors.dart';
+import 'package:phish_defender/core/constants.dart';
 import 'package:phish_defender/core/textstyle.dart';
 
 class ResultScreen extends StatelessWidget {
@@ -36,7 +37,7 @@ class ResultScreen extends StatelessWidget {
                   builder: (context, value, _) {
                     if (Datadb.instance.letternotifier.value.isEmpty) {
                       return Lottie.asset(
-                        "lib/animations/loaging_animation.json",
+                        lottieLoadingAnimation,
                         height: 150,
                         width: 150,
                       );
