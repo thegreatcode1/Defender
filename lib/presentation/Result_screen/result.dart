@@ -18,13 +18,20 @@ class ResultScreen extends StatelessWidget {
               ValueListenableBuilder(
                 valueListenable: Datadb.instance.letternotifier,
                 builder: (context, value, _) {
-                  if (Datadb.instance.letternotifier.value.isNotEmpty) {
+                  if (Datadb.instance.letternotifier.value.isEmpty) {
+                    return const CircularProgressIndicator.adaptive(
+                      strokeAlign: BorderSide.strokeAlignCenter,
+                      strokeWidth: 10,
+                      semanticsLabel: "Loading",
+                    );
+                  }
+                  else if(Datadb.instance.letternotifier.value.isNotEmpty) {
                     return Text(
                       //"hello",
                       Datadb.instance.letternotifier.value[0],
                       style: dummystyle,
                     );
-                  }else{
+                  } else {
                     return const Text(
                       'No data available',
                       style: TextStyle(color: Colors.red),
