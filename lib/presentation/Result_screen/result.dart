@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:phish_defender/api_end_points/data.dart';
+import 'package:phish_defender/core/colors.dart';
 import 'package:phish_defender/core/textstyle.dart';
 
 class ResultScreen extends StatelessWidget {
@@ -23,7 +24,7 @@ class ResultScreen extends StatelessWidget {
         ),
       ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        backgroundColor: ktransparent,
         body: SafeArea(
           child: Center(
             child: Column(

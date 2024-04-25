@@ -28,7 +28,7 @@ class SplashScreen extends StatelessWidget {
         ),
       ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        backgroundColor: ktransparent,
           body: Center(
         child: AnimatedTextKit(animatedTexts: [
           ColorizeAnimatedText(
