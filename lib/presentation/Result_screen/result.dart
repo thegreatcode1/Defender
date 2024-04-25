@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:lottie/lottie.dart';
 import 'package:phish_defender/api_end_points/data.dart';
 import 'package:phish_defender/core/colors.dart';
 import 'package:phish_defender/core/textstyle.dart';
@@ -34,15 +35,13 @@ class ResultScreen extends StatelessWidget {
                   valueListenable: Datadb.instance.letternotifier,
                   builder: (context, value, _) {
                     if (Datadb.instance.letternotifier.value.isEmpty) {
-                      return const CircularProgressIndicator.adaptive(
-                        strokeAlign: BorderSide.strokeAlignCenter,
-                        strokeWidth: 2,
-                        semanticsLabel: "Loading",
-                        backgroundColor: Colors.white,
-                        semanticsValue: "loading",
-                        strokeCap: StrokeCap.square,
+                      return Lottie.asset(
+                        "lib/animations/loaging_animation.json",
+                        height: 150,
+                        width: 150,
                       );
-                    } else if (Datadb.instance.letternotifier.value.isNotEmpty) {
+                    } else if (Datadb
+                        .instance.letternotifier.value.isNotEmpty) {
                       return Text(
                         //"hello",
                         Datadb.instance.letternotifier.value[0],
