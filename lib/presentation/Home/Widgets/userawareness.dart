@@ -11,7 +11,8 @@ ChatSession? chatSessionnew;
 final TextEditingController textcontroller = TextEditingController();
 final FocusNode textfieldfocus = FocusNode();
 bool loading = false;
-class UserAwareness extends  StatelessWidget {
+
+class UserAwareness extends StatelessWidget {
   static String apiKey = apiKey;
   const UserAwareness({
     super.key,
@@ -59,11 +60,9 @@ class UserAwareness extends  StatelessWidget {
             children: [
               Expanded(
                 child: TextFormField(
-                  autofocus: true,
                   focusNode: textfieldfocus,
                   controller: textcontroller,
                   decoration: textfielddecoration(),
-                  
                 ),
               ),
             ],

@@ -47,10 +47,10 @@ class HomeScreen extends StatelessWidget {
                   tabAlignment: TabAlignment.center,
                   tabs: const [
                     Tab(
-                      text: "👨‍✈️ User Awareness",
+                      text: "🤖 AI",
                     ),
                     Tab(
-                      text: "🪝 check",
+                      text: "🪝 Check",
                     ),
                   ],
                 ),
