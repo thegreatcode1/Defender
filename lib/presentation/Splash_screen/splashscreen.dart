@@ -15,19 +15,30 @@ class SplashScreen extends StatelessWidget {
       Navigator.of(context).pushReplacementNamed(HomeScreen.routename);
     });
 
-    return Scaffold(
-        body: Center(
-      child: AnimatedTextKit(
-          
-          animatedTexts: [
-            ColorizeAnimatedText(
-              'DEFENDER',
-              textStyle:colorizeTextStyle,
-              colors: colorizeColors,
-              speed: Duration(milliseconds: 400),
-              
-            ),
-          ]),
-    ));
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Color(0xff1b485d), Color(0xff022f46)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          stops: [0.2, 0.6],
+          tileMode: TileMode.repeated,
+        ),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+          body: Center(
+        child: AnimatedTextKit(animatedTexts: [
+          ColorizeAnimatedText(
+            'DEFENDER',
+            textStyle: colorizeTextStyle,
+            colors: colorizeColors,
+            speed: const Duration(milliseconds: 400),
+          ),
+        ]),
+      )),
+    );
   }
 }

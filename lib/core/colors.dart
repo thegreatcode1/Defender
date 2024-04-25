@@ -6,8 +6,8 @@ const ktransparent = Colors.transparent;
 const kgrey = Colors.grey;
 
 const colorizeColors = [
-  Colors.purple,
+  Colors.cyan,
   Colors.blue,
-  Colors.yellow,
+  Colors.grey,
   Colors.red,
 ];
