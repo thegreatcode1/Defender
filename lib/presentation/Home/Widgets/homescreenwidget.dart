@@ -79,7 +79,7 @@ class HomeButtonandTextfield extends StatelessWidget {
     if (value == null || value.isEmpty) {
       return "enter valid url";
     } else {
-       if (RegExp(urlPattern, caseSensitive: false).hasMatch(value)) {
+      if (RegExp(urlPattern, caseSensitive: false).hasMatch(value)) {
         return null; // URL is valid
       } else {
         return "Please enter a valid URL"; // Error message

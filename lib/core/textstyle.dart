@@ -35,13 +35,10 @@ const TextStyle splashscreentext = TextStyle(
   fontWeight: FontWeight.w700,
 );
 
-const colorizeTextStyle = TextStyle(
-  color: Colors.white,
-  fontSize: 50.0,
-  fontWeight: FontWeight.bold
-);
+const colorizeTextStyle =
+    TextStyle(color: Colors.white, fontSize: 50.0, fontWeight: FontWeight.bold);
 
- const textStyleawerness = TextStyle(
+const textStyleawerness = TextStyle(
   color: Colors.white,
   fontSize: 20,
   fontWeight: FontWeight.bold,

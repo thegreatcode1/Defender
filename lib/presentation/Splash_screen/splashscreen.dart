@@ -28,17 +28,17 @@ class SplashScreen extends StatelessWidget {
         ),
       ),
       child: Scaffold(
-        backgroundColor: ktransparent,
+          backgroundColor: ktransparent,
           body: Center(
-        child: AnimatedTextKit(animatedTexts: [
-          ColorizeAnimatedText(
-            'DEFENDER',
-            textStyle: colorizeTextStyle,
-            colors: colorizeColors,
-            speed: const Duration(milliseconds: 400),
-          ),
-        ]),
-      )),
+            child: AnimatedTextKit(animatedTexts: [
+              ColorizeAnimatedText(
+                'DEFENDER',
+                textStyle: colorizeTextStyle,
+                colors: colorizeColors,
+                speed: const Duration(milliseconds: 400),
+              ),
+            ]),
+          )),
     );
   }
 }

@@ -12,18 +12,18 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
-       child: Container(
-         height: double.infinity,
-         width: double.infinity,
-         decoration:  const BoxDecoration(
-           gradient: LinearGradient(
-             colors: [Color(0xff1b485d), Color(0xff022f46)],
-             begin: Alignment.topLeft,
-             end: Alignment.bottomRight,
-             stops: [0.2, 0.6],
-             tileMode: TileMode.repeated,
-           ),
-         ),
+      child: Container(
+        height: double.infinity,
+        width: double.infinity,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xff1b485d), Color(0xff022f46)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            stops: [0.2, 0.6],
+            tileMode: TileMode.repeated,
+          ),
+        ),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: SafeArea(

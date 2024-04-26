@@ -28,7 +28,7 @@ class Datadb extends ApiCalls {
   @override
   Future<List<String>> getResult(String input) async {
     try {
-      final completepath = url.baseurl+'${input}';
+      final completepath = url.baseurl + '${input}';
       final response = await dio.get<String>(completepath);
       log(response.data.toString());
       if (response.data != null && response.data is String) {
