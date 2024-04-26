@@ -46,7 +46,7 @@ class HomeButtonandTextfield extends StatelessWidget {
 
                 String input = textcontroller.text;
                 if (formKey.currentState!.validate()) {
-                  Datadb.instance.getletterascii(input);
+                  Datadb.instance.getResult(input);
                   textcontroller.clear();
                   Navigator.of(context).pushNamed(ResultScreen.routename);
                 }

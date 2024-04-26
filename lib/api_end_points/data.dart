@@ -4,11 +4,11 @@ import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:phish_defender/api_end_points/uri.dart';
-import 'package:phish_defender/model/letter_parse_model/letter_parse_model.dart';
+import 'package:phish_defender/model/phishResultGetModels/phishOrnotresult.dart';
 //import 'package:phish_defender/presentation/Home/Widgets/homescreenwidget.dart';
 
 abstract class ApiCalls {
-  Future<List<String>> getletterascii(String input);
+  Future<List<String>> getResult(String input);
 }
 
 class Datadb extends ApiCalls {
@@ -26,7 +26,7 @@ class Datadb extends ApiCalls {
   ValueNotifier<List<String>> letternotifier = ValueNotifier([]);
 
   @override
-  Future<List<String>> getletterascii(String input) async {
+  Future<List<String>> getResult(String input) async {
     try {
       final completepath = url.baseurl+'${input}';
       final response = await dio.get<String>(completepath);

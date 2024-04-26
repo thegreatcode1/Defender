@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'letter_parse_model.dart';
+part of 'phishOrnotresult.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

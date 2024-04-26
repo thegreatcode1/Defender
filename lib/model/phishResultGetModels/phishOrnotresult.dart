@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'letter_parse_model.g.dart';
+part 'phishOrnotresult.g.dart';
 
 @JsonSerializable()
 class LetterParseModelGet {
