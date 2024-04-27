@@ -47,10 +47,12 @@ class HomeButtonandTextfield extends StatelessWidget {
                 String input = textcontroller.text;
                 if (formKey.currentState!.validate()) {
                   Datadb.instance.getResult(input);
+                  Datadb.instance.getTableResult(input);
                   textcontroller.clear();
                   Navigator.of(context).pushNamed(ResultScreen.routename);
                 }
               },
+              //https://www.amazon.in/
               color: kwhite,
               textColor: kblack,
               shape: const RoundedRectangleBorder(

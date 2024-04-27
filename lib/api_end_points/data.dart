@@ -55,21 +55,22 @@ class Datadb extends ApiCalls {
 
   @override
   Future<List<dynamic>> getTableResult(String input) async {
+    log("hai");
     try {
       final completepath = url.tableurl + '${input}';
-      final response = await dio.get<String>(completepath);
-      if (response.data != null && response.data is String) {
+      final response =
+          await dio.get<Map<String, dynamic>>(completepath); // Update type here
+      if (response.data != null) {
         final gettablerespo =
-            Urldetails.fromJson(jsonDecode(response.data.toString()));
-            log(gettablerespo.tableout.toString());
-            if (gettablerespo.tableout!=null) {
-              tablenotifier.value.clear();
-              tablenotifier.value.addAll(gettablerespo.tableout!.toList());
-              tablenotifier.notifyListeners();
-            }
-            return gettablerespo.tableout!.toList();
+            Urldetails.fromJson(response.data!); 
+        log(gettablerespo.tableout.toString());
+        if (gettablerespo.tableout != null) {
+          tablenotifier.value.clear();
+          tablenotifier.value.addAll(gettablerespo.tableout!);
+          tablenotifier.notifyListeners();
+        }
+        return gettablerespo.tableout ?? [];
       }
-       
     } catch (e) {
       log(e.toString());
     }

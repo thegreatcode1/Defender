@@ -10,12 +10,10 @@ class Urldetails {
   Urldetails({this.tableout});
   Urldetails.create({required this.tableout});
 
-  factory Urldetails.fromJson(Map<String, dynamic> json) {
-    var tableoutputList = (json['tableout'] as String?)?.split(',') ?? [];
-    return Urldetails(
-      tableout: tableoutputList,
-    );
-  }
+  factory Urldetails.fromJson(Map<String, dynamic> json) => Urldetails(
+        tableout: json['tableout'] as List<dynamic>?,
+      );
+
 
   Map<String, dynamic> toJson() {
     var tableoutput = tableout?.join(',') ?? '';
