@@ -43,3 +43,15 @@ const textStyleawerness = TextStyle(
   fontSize: 20,
   fontWeight: FontWeight.bold,
 );
+
+const tableTextStyle = TextStyle(
+  color: kwhite,
+  fontSize: 24,
+  fontWeight: FontWeight.bold,
+);
+
+const tableansTextStyle = TextStyle(
+  color: kwhite,
+  fontSize: 19,
+  fontWeight: FontWeight.bold,
+);

@@ -4,6 +4,7 @@ import 'package:phish_defender/api_end_points/data.dart';
 import 'package:phish_defender/core/colors.dart';
 import 'package:phish_defender/core/constants.dart';
 import 'package:phish_defender/core/textstyle.dart';
+import 'package:phish_defender/presentation/Result_screen/Widgets/tablewidget.dart';
 
 class ResultScreen extends StatelessWidget {
   static const routename = "result-screen";
@@ -54,7 +55,7 @@ class ResultScreen extends StatelessWidget {
                     }
                   },
                 ),
-                //SizedBox(height: 100,),
+                 TableWidget(),
                 ElevatedButton(
                     onPressed: () {
                       Datadb.instance.letternotifier.value.clear();
@@ -69,3 +70,5 @@ class ResultScreen extends StatelessWidget {
     );
   }
 }
+
+
