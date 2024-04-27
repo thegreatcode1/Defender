@@ -5,10 +5,12 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:phish_defender/api_end_points/uri.dart';
 import 'package:phish_defender/model/phishResultGetModels/phishOrnotresult.dart';
+import 'package:phish_defender/model/urldetails/urldetails.dart';
 //import 'package:phish_defender/presentation/Home/Widgets/homescreenwidget.dart';
 
 abstract class ApiCalls {
   Future<List<String>> getResult(String input);
+  Future<List<dynamic>> getTableResult(String input);
 }
 
 class Datadb extends ApiCalls {
@@ -24,6 +26,7 @@ class Datadb extends ApiCalls {
 // singleton end
 
   ValueNotifier<List<String>> letternotifier = ValueNotifier([]);
+  ValueNotifier<List<dynamic>> tablenotifier = ValueNotifier([]);
 
   @override
   Future<List<String>> getResult(String input) async {
@@ -44,9 +47,32 @@ class Datadb extends ApiCalls {
         return getrespo.output ?? [];
       }
     } catch (e) {
-      print(e);
+      //print(e);
     }
 
+    return [];
+  }
+
+  @override
+  Future<List<dynamic>> getTableResult(String input) async {
+    try {
+      final completepath = url.tableurl + '${input}';
+      final response = await dio.get<String>(completepath);
+      if (response.data != null && response.data is String) {
+        final gettablerespo =
+            Urldetails.fromJson(jsonDecode(response.data.toString()));
+            log(gettablerespo.tableout.toString());
+            if (gettablerespo.tableout!=null) {
+              tablenotifier.value.clear();
+              tablenotifier.value.addAll(gettablerespo.tableout!.toList());
+              tablenotifier.notifyListeners();
+            }
+            return gettablerespo.tableout!.toList();
+      }
+       
+    } catch (e) {
+      log(e.toString());
+    }
     return [];
   }
 }
