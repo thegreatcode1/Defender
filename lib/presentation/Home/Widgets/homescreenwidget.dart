@@ -3,6 +3,8 @@ import 'package:phish_defender/api_end_points/data.dart';
 import 'package:phish_defender/core/colors.dart';
 import 'package:phish_defender/core/constants.dart';
 import 'package:phish_defender/core/textstyle.dart';
+import 'package:phish_defender/presentation/Home/Widgets/userawareness.dart';
+import 'package:phish_defender/presentation/Result_screen/loadingscreen.dart';
 import 'package:phish_defender/presentation/Result_screen/result.dart';
 
 final textcontroller = TextEditingController();
@@ -49,10 +51,9 @@ class HomeButtonandTextfield extends StatelessWidget {
                   Datadb.instance.getResult(input);
                   Datadb.instance.getTableResult(input);
                   textcontroller.clear();
-                  Navigator.of(context).pushNamed(ResultScreen.routename);
+                  Navigator.of(context).pushNamed(Loadingscreen.routename);
                 }
               },
-              //https://www.amazon.in/
               color: kwhite,
               textColor: kblack,
               shape: const RoundedRectangleBorder(

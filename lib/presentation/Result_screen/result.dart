@@ -34,28 +34,14 @@ class ResultScreen extends StatelessWidget {
                 ValueListenableBuilder(
                   valueListenable: Datadb.instance.letternotifier,
                   builder: (context, value, _) {
-                    if (Datadb.instance.letternotifier.value.isEmpty) {
-                      return Lottie.asset(
-                        lottieLoadingAnimation,
-                        height: 150,
-                        width: 150,
-                      );
-                    } else if (Datadb
-                        .instance.letternotifier.value.isNotEmpty) {
-                      return Text(
-                        //"hello",
-                        Datadb.instance.letternotifier.value[0],
-                        style: dummystyle,
-                      );
-                    } else {
-                      return const Text(
-                        'No data available',
-                        style: TextStyle(color: Colors.red),
-                      );
-                    }
+                    return Text(
+                      //"hello",
+                      Datadb.instance.letternotifier.value[0],
+                      style: dummystyle,
+                    );
                   },
                 ),
-                 TableWidget(),
+                const TableWidget(),
                 ElevatedButton(
                     onPressed: () {
                       Datadb.instance.letternotifier.value.clear();
@@ -70,5 +56,3 @@ class ResultScreen extends StatelessWidget {
     );
   }
 }
-
-
