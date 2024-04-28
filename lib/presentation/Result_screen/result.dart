@@ -34,20 +34,40 @@ class ResultScreen extends StatelessWidget {
                 ValueListenableBuilder(
                   valueListenable: Datadb.instance.letternotifier,
                   builder: (context, value, _) {
-                    return Text(
-                      //"hello",
-                      Datadb.instance.letternotifier.value[0],
-                      style: dummystyle,
-                    );
+                    if (Datadb.instance.letternotifier.value.isEmpty) {
+                      return Lottie.asset(
+                        lottieLoadingAnimation,
+                        height: 150,
+                        width: 150,
+                      );
+                    } else if (Datadb
+                        .instance.letternotifier.value.isNotEmpty) {
+                      return Column(
+                        children: [
+                          Text(
+                            //"hello",
+                            Datadb.instance.letternotifier.value[0],
+                            style: dummystyle,
+                          ),
+                          const TableWidget(),
+                          ElevatedButton(
+                            onPressed: () {
+                              Datadb.instance.letternotifier.value.clear();
+                              Datadb.instance.tablenotifier.value.clear();
+                              Navigator.of(context).pop();
+                            },
+                            child: const Text("back"),
+                          ),
+                        ],
+                      );
+                    } else {
+                      return const Text(
+                        'No data available',
+                        style: TextStyle(color: Colors.red),
+                      );
+                    }
                   },
                 ),
-                const TableWidget(),
-                ElevatedButton(
-                    onPressed: () {
-                      Datadb.instance.letternotifier.value.clear();
-                      Navigator.of(context).pop();
-                    },
-                    child: const Text("back"))
               ],
             ),
           ),

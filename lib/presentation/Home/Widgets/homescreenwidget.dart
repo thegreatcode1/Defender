@@ -3,7 +3,6 @@ import 'package:phish_defender/api_end_points/data.dart';
 import 'package:phish_defender/core/colors.dart';
 import 'package:phish_defender/core/constants.dart';
 import 'package:phish_defender/core/textstyle.dart';
-import 'package:phish_defender/presentation/Home/Widgets/userawareness.dart';
 import 'package:phish_defender/presentation/Result_screen/loadingscreen.dart';
 import 'package:phish_defender/presentation/Result_screen/result.dart';
 
@@ -12,6 +11,7 @@ String newValueController = textcontroller.toString();
 final formKey = GlobalKey<FormState>();
 
 class HomeButtonandTextfield extends StatelessWidget {
+  static const routename = "check-url-screen";
   const HomeButtonandTextfield({
     super.key,
   });
@@ -31,7 +31,7 @@ class HomeButtonandTextfield extends StatelessWidget {
               style: hometextstyletextfieldurl,
               decoration: InputDecoration(
                 fillColor: ktransparent.withOpacity(0.2),
-                hintText: "paste url",
+                hintText: "ex : https://example.com",
                 hintStyle: hometextstyletextfield,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
@@ -51,7 +51,7 @@ class HomeButtonandTextfield extends StatelessWidget {
                   Datadb.instance.getResult(input);
                   Datadb.instance.getTableResult(input);
                   textcontroller.clear();
-                  Navigator.of(context).pushNamed(Loadingscreen.routename);
+                  Navigator.of(context).pushNamed(ResultScreen.routename);
                 }
               },
               color: kwhite,
