@@ -31,7 +31,7 @@ class HomeButtonandTextfield extends StatelessWidget {
               style: hometextstyletextfieldurl,
               decoration: InputDecoration(
                 fillColor: ktransparent.withOpacity(0.2),
-                hintText: "ex : https://example.com",
+                hintText: "ex :https://example.com",
                 hintStyle: hometextstyletextfield,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
