@@ -70,13 +70,14 @@ class _AiScreenState extends State<AiScreen> {
                     focusNode: textfieldfocus,
                     controller: textcontroller,
                     decoration: textfielddecoration(),
-                    onSubmitted: sendmassage,
+                    //onSubmitted: sendmassage,
+                    style: const TextStyle(color: kwhite),
                   ),
                 ),
                 IconButton(
                   onPressed: () => sendmassage(textcontroller
                       .text), // Call sendmassage function with the text from the controller
-                  icon: const Icon(Icons.send_outlined),
+                  icon: const Icon(Icons.send_outlined,size: 40,color: kwhite,),
                 ),
               ],
             ),
@@ -90,6 +91,7 @@ class _AiScreenState extends State<AiScreen> {
     return InputDecoration(
       contentPadding: const EdgeInsets.all(15),
       hintText: "Enter a prompt",
+      hintStyle: const TextStyle(color: kwhite),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(14),
         borderSide: const BorderSide(color: Colors.blue),
