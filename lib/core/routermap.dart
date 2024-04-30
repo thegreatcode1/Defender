@@ -6,6 +6,6 @@ import 'package:phish_defender/presentation/Result_screen/result.dart';
 final routers = {
   ResultScreen.routename: (ctx) => const ResultScreen(),
   HomeScreen.routename: (ctx) => const HomeScreen(),
-  Loadingscreen.routename:(ctx)=>const Loadingscreen(),
+  //.roLoadingscreenutename:(ctx)=>const Loadingscreen(),
   HomeButtonandTextfield.routename:(ctx)=>const HomeButtonandTextfield()
 };

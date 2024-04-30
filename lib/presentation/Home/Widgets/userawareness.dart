@@ -1,8 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:phish_defender/api_end_points/api_key.dart';
+import 'package:phish_defender/core/colors.dart';
 import 'package:phish_defender/presentation/Home/Widgets/massagewidget.dart';
 
 class AiScreen extends StatefulWidget {
@@ -17,6 +20,8 @@ class _AiScreenState extends State<AiScreen> {
   late final ChatSession _chatSession;
   final FocusNode textfieldfocus = FocusNode();
   final TextEditingController textcontroller = TextEditingController();
+  bool loading = false;
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
@@ -38,6 +43,8 @@ class _AiScreenState extends State<AiScreen> {
         children: [
           Expanded(
             child: ListView.builder(
+              controller: _scrollController,
+              itemCount: _chatSession.history.length,
               itemBuilder: (context, index) {
                 final Content content = _chatSession.history.toList()[index];
                 final text = content.parts
@@ -59,12 +66,16 @@ class _AiScreenState extends State<AiScreen> {
             child: Row(
               children: [
                 Expanded(
-                  child: TextFormField(
+                  child: TextField(
                     focusNode: textfieldfocus,
                     controller: textcontroller,
                     decoration: textfielddecoration(),
+                    onSubmitted: sendmassage,
                   ),
                 ),
+                // IconButton(
+                //     onPressed: () => sendmassage,
+                //     icon: const Icon(Icons.send_outlined))
               ],
             ),
           )
@@ -72,6 +83,7 @@ class _AiScreenState extends State<AiScreen> {
       ),
     );
   }
+
   InputDecoration textfielddecoration() {
     return InputDecoration(
       contentPadding: const EdgeInsets.all(15),
@@ -81,5 +93,61 @@ class _AiScreenState extends State<AiScreen> {
         borderSide: const BorderSide(color: Colors.blue),
       ),
     );
+  }
+
+  Future<void> sendmassage(String massage) async {
+    setState(() {
+      loading = true;
+    });
+    try {
+      final response = await _chatSession.sendMessage(Content.text(massage));
+      final text = response.text;
+      log(text.toString());
+      if (text == null) {
+        _showerror("not response for api");
+        return;
+      } else {
+        loading = false;
+        _scrolldown();
+      }
+    } catch (e) {
+      _showerror(e.toString());
+      setState(() {
+        loading = false;
+      });
+    } finally {
+      textcontroller.clear();
+      setState(() {
+        loading = false;
+      });
+      textfieldfocus.requestFocus();
+    }
+  }
+
+  void _showerror(String massage) {
+    showDialog<void>(
+      context: context,
+      builder: (context) {
+        return SnackBar(
+          content: Text(
+            massage,
+            style: const TextStyle(
+              color: kwhite,
+              fontSize: 16,
+            ),
+          ),
+          backgroundColor: kblack,
+        );
+      },
+    );
+  }
+
+  void _scrolldown() {
+    WidgetsBinding.instance
+        .addPostFrameCallback((_) => _scrollController.animateTo(
+              _scrollController.position.maxScrollExtent,
+              duration: const Duration(milliseconds: 750),
+              curve: Curves.easeInOut,
+            ));
   }
 }
