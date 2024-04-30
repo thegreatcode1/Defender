@@ -32,6 +32,7 @@ class HomeScreen extends StatelessWidget {
                 //top tabs
                 TabBar(
                   isScrollable: true,
+                  overlayColor: MaterialStateProperty.all(Colors.transparent),
                   dividerColor: ktransparent,
                   padding: const EdgeInsets.all(50),
                   indicatorSize: TabBarIndicatorSize.tab,

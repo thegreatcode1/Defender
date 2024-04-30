@@ -39,7 +39,7 @@ class _AiScreenState extends State<AiScreen> {
       padding: const EdgeInsets.all(8.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
             child: ListView.builder(
@@ -73,9 +73,11 @@ class _AiScreenState extends State<AiScreen> {
                     onSubmitted: sendmassage,
                   ),
                 ),
-                // IconButton(
-                //     onPressed: () => sendmassage,
-                //     icon: const Icon(Icons.send_outlined))
+                IconButton(
+                  onPressed: () => sendmassage(textcontroller
+                      .text), // Call sendmassage function with the text from the controller
+                  icon: const Icon(Icons.send_outlined),
+                ),
               ],
             ),
           )

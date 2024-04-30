@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+//import 'package:markdown_viewer/markdown_viewer.dart';
 //import 'package:flutter/widgets.dart';
 import 'package:markdown_widget/markdown_widget.dart';
 
@@ -15,30 +16,29 @@ class MassageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment:
-          text == true ? MainAxisAlignment.end : MainAxisAlignment.start,
+          text == "true" ? MainAxisAlignment.end : MainAxisAlignment.start,
       children: [
-        SizedBox(
-          height: 30,
-        ),
         Flexible(
-          child: Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
-              vertical: 15,
-            ),
-            constraints: const BoxConstraints(maxWidth: 520),
-            decoration: BoxDecoration(
-              color: text == 'true' ? Colors.green : Colors.grey,
-              borderRadius: BorderRadius.circular(
-                18,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 05, horizontal: 20),
+            child: Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 25,
+                vertical: 10,
               ),
-            ),
-            child: Column(
-              children: [
-                MarkdownBlock(
-                  data: text,
-                )
-              ],
+              constraints: const BoxConstraints(maxWidth: 520),
+              decoration: BoxDecoration(
+                color: text == 'true' ? Colors.green : Colors.grey,
+                borderRadius: BorderRadius.circular(
+                  18,
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: isformtext == true
+                    ? CrossAxisAlignment.end
+                    : CrossAxisAlignment.start,
+                children: [MarkdownBlock(data: text)],
+              ),
             ),
           ),
         ),
