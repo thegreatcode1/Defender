@@ -4,6 +4,7 @@ import 'package:phish_defender/core/routermap.dart';
 import 'package:phish_defender/presentation/Splash_screen/splashscreen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
