@@ -3,7 +3,7 @@ import 'package:phish_defender/api_end_points/data.dart';
 import 'package:phish_defender/core/colors.dart';
 import 'package:phish_defender/core/constants.dart';
 import 'package:phish_defender/core/textstyle.dart';
-import 'package:phish_defender/presentation/Result_screen/loadingscreen.dart';
+//import 'package:phish_defender/presentation/Result_screen/loadingscreen.dart';
 import 'package:phish_defender/presentation/Result_screen/result.dart';
 
 final textcontroller = TextEditingController();
