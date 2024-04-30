@@ -58,7 +58,7 @@ class HomeScreen extends StatelessWidget {
                 const Expanded(
                   child: TabBarView(
                     children: [
-                      UserAwareness(),
+                      AiScreen(),
                       HomeButtonandTextfield(),
                     ],
                   ),
