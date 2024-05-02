@@ -28,6 +28,7 @@ class Datadb extends ApiCalls {
   ValueNotifier<List<String>> letternotifier = ValueNotifier([]);
   ValueNotifier<List<dynamic>> tablenotifier = ValueNotifier([]);
 
+//function used for getting prediction result
   @override
   Future<List<String>> getResult(String input) async {
     try {
@@ -53,6 +54,7 @@ class Datadb extends ApiCalls {
     return [];
   }
 
+// function used for getting table details
   @override
   Future<List<dynamic>> getTableResult(String input) async {
     log("hai");
@@ -61,8 +63,7 @@ class Datadb extends ApiCalls {
       final response =
           await dio.get<Map<String, dynamic>>(completepath); // Update type here
       if (response.data != null) {
-        final gettablerespo =
-            Urldetails.fromJson(response.data!); 
+        final gettablerespo = Urldetails.fromJson(response.data!);
         log(gettablerespo.tableout.toString());
         if (gettablerespo.tableout != null) {
           tablenotifier.value.clear();
