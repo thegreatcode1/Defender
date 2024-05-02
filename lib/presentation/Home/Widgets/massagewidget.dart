@@ -5,7 +5,7 @@ import 'package:markdown_widget/markdown_widget.dart';
 
 class MassageWidget extends StatelessWidget {
   final String text;
-  final String isformtext;
+  final String? isformtext;
   const MassageWidget({
     super.key,
     required this.text,
@@ -34,7 +34,7 @@ class MassageWidget extends StatelessWidget {
                 ),
               ),
               child: Column(
-                crossAxisAlignment: isformtext == true
+                crossAxisAlignment: isformtext == "true"
                     ? CrossAxisAlignment.end
                     : CrossAxisAlignment.start,
                 children: [MarkdownBlock(data: text)],

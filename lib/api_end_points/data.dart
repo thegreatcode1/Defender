@@ -43,6 +43,7 @@ class Datadb extends ApiCalls {
         if (getrespo.output != null) {
           letternotifier.value.clear();
           letternotifier.value.addAll(getrespo.output!);
+          // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
           letternotifier.notifyListeners();
         }
         return getrespo.output ?? [];
@@ -68,6 +69,7 @@ class Datadb extends ApiCalls {
         if (gettablerespo.tableout != null) {
           tablenotifier.value.clear();
           tablenotifier.value.addAll(gettablerespo.tableout!);
+          // ignore: invalid_use_of_protected_member, invalid_use_of_visible_for_testing_member
           tablenotifier.notifyListeners();
         }
         return gettablerespo.tableout ?? [];

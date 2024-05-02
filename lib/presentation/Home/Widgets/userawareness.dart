@@ -1,8 +1,8 @@
 import 'dart:developer';
 
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:phish_defender/api_end_points/api_key.dart';
 import 'package:phish_defender/core/colors.dart';
