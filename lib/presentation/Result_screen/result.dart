@@ -34,20 +34,23 @@ class ResultScreen extends StatelessWidget {
                 ValueListenableBuilder(
                   valueListenable: Datadb.instance.letternotifier,
                   builder: (context, value, _) {
-                    if (Datadb.instance.letternotifier.value.isEmpty) {
+                    if (Datadb.instance.letternotifier.value.isEmpty &&
+                        Datadb.instance.tablenotifier.value.isEmpty) {
                       return Lottie.asset(
                         lottieLoadingAnimation,
                         height: 150,
                         width: 150,
                       );
                     } else if (Datadb
-                        .instance.letternotifier.value.isNotEmpty) {
+                            .instance.letternotifier.value.isNotEmpty &&
+                        Datadb.instance.tablenotifier.value.isNotEmpty) {
                       return Column(
                         children: [
                           Text(
                             //"hello",
                             Datadb.instance.letternotifier.value[0],
                             style: dummystyle,
+                            textAlign: TextAlign.center,
                           ),
                           const TableWidget(),
                           ElevatedButton(
